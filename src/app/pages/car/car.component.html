@@ -1,1 +1,41 @@
 <p>car works!</p>
+<div class="alert alert-primary" role="alert">
+    This is a primary alert—check it out!
+  </div>
+
+  <button (click)="btnClick()"> 
+    isClick
+  </button>
+<br>
+<br>
+
+ 
+<!--  
+<div class="row">
+    <div *ngFor="let car of cars"
+    class="card" style="width: 18rem;">
+    <img src="" class="card-img-top" alt="" >
+    <div class="card-body">
+      <h5 class="card-title">{{car.modelName}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div> -->
+
+<form class="w-50 me-3 mt-5 mb-5">
+  <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="textFilterx"  name="filterText"
+    id="filterText">
+</form>
+
+<div class="row">
+  <div *ngFor="let car of cars | filterPipe :textFilterx "
+  class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{car.model.name}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
