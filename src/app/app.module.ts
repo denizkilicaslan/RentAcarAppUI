@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrandComponent } from './pages/brand/brand.component';
 import { SharedModule } from './shared/shared.module';
 import { CarComponent } from './pages/car/car.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CarComponent } from './pages/car/car.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
