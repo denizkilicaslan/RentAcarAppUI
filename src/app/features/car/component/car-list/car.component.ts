@@ -1,8 +1,8 @@
-import { CarService } from './../../shared/services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Car } from 'src/app/shared/models/car';
+import { CarsAbstractService } from '../../services/abstracts/cars-abstract.service';
 
 @Component({
   selector: 'app-car',
@@ -14,8 +14,8 @@ export class CarComponent implements OnInit {
   textFilterx: string;
   constructor(
     private router: Router,
-    private carService: CarService,
-    private activatedRoot: ActivatedRoute
+    private activatedRoot: ActivatedRoute,
+    private carAbstractService: CarsAbstractService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class CarComponent implements OnInit {
   }
 
   getAllCars() {
-    this.carService.getAllCar().subscribe((res) => {
+    this.carAbstractService.getCarList().subscribe((res) => {
       this.cars = res;
     });
   }
@@ -40,7 +40,7 @@ export class CarComponent implements OnInit {
   }
 
   getCarByBrandId(brandId: number) {
-    this.carService.getCarByBrand(brandId).subscribe((res) => {
+    this.carAbstractService.getCarByBrandId(brandId).subscribe((res) => {
       this.cars = res;
     });
   }
